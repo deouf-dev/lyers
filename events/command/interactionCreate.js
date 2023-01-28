@@ -32,8 +32,6 @@ module.exports = {
                     "Vous n'avez pas les permissions nécaissaire pour utiliser cette commande",
                 ephemeral: true,
             });
-        interaction.user.manager =
-            client.managers.userManager.getOrCreate(interaction.user.id);
         command.run(client, interaction, guildManager);
     },
 };

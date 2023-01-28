@@ -10,7 +10,6 @@ module.exports = {
      async run(client, interaction){
           console.log(client)
           const image = interaction.options.getAttachment("image")
-         if(interaction.user.manager.get("reportCooldown") <= Date.now()) return interaction.reply({content: `Veuillez attendre encore <t:${Math.round(interaction.user.manager.get("reportCooldown") / 1000)}:R> avant de pouvoir report un nouveau bug`});
          const modal = new ModalBuilder().setCustomId("modal-report").setTitle("Report - lYers 📘")
          .addComponents(
           new ActionRowBuilder()

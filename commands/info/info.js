@@ -75,10 +75,7 @@ module.exports = {
 		} else if (cmd === "user") {
 			const user =
 				interaction.options.getUser("utilisateur") || interaction.user;
-			if (!user.manager)
-				user.manager = client.managers.userManager.getOrCreate(
-					user.id
-				);
+			 const usermanager = client.managers.userManager.getOrCreate(user.id)
 			let embed = {
 				title: `${user.username}#${user.discriminator} Info`,
 				thumbnail: {
@@ -104,9 +101,9 @@ module.exports = {
 					{
 						name: `${client.botemojis.setup} Dernier prevname`,
 						value: `> ${
-							user.manager.get("prevnames")[
-								user.manager.get("prevnames").length - 1
-							] || "Aucun"
+							usermanager.get("prevnames")[
+								usermanager.get("prevnames").length - 1
+							]?.name || "Aucun"
 						}`,
 					},
 					{

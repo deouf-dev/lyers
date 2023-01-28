@@ -28,7 +28,7 @@ class Manager {
         this.key = values.userId;
         this.values = {
             ...require("./model"),
-            ...values,
+            ...values
         }
     }
     save(){
@@ -56,6 +56,7 @@ class Manager {
     }
     delete(key){
         this.values[key] = undefined;
+        this.save();
         return this;
     }
     all(){

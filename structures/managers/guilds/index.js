@@ -61,6 +61,7 @@ class Manager {
     }
     delete(key){
         this.values[key] = undefined;
+        this.save()
         return this;
     }
     all(){
