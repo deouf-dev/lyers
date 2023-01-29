@@ -87,7 +87,7 @@ class Util {
         return require("./embedBuilder")(this.client, interaction)
     }
     checkDuration(string){
-        return !(!string.endsWith("s") && !string.endsWith("m") && !string.endsWith("h") && !string.endsWith("d"));
+        return !(string.endsWith("s") && !string.endsWith("m") && !string.endsWith("h") && !string.endsWith("d"))
     }
     replaceInvitesVariables(string, inviter, member, guild, invitesCount){
         return string.replace("{member}", member)

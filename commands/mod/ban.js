@@ -7,7 +7,7 @@ module.exports = {
          {name: "raison", description: "La raison", required: false, type: 3},
      ],
      async run(client, interaction, guildData){
-        const spammer = require("../../events/antiraid/antimassban").spammer;
+        const spammer = require("../../events/protection/antimassban").spammer;
          const target = interaction.guild.members.cache.get(interaction.options.getUser("membre").id);
          if(!target) return interaction.reply({content: "Membre introuvable", ephemeral: true});
          const reason = interaction.options.getString("raison") || "Aucune raison";
@@ -20,6 +20,10 @@ module.exports = {
          if(target.roles.highest.position >= interaction.member.roles.highest.position) return interaction.reply({content: "Vous ne pouvez pas bannir cette utilisateur car il possède un plusieurs rôle au-dessus de vous", ephemeral: true})
          target.ban(reason).then(() => {
              interaction.reply(`${target} a été ban pour ${reason} `);
+             const targetData = client.managers.userManager.getOrCreate(target.user.id);
+             const warns = targetData.get("warns")
+             (warns[interaction.guild.id] || []).push({type: "ban", reason})
+             targetData.set("warns", warns)
              client.util.modLog(interaction.guild, `${interaction.user} a ban ${target} pour ${reason}`)
              spammer.set(`${interaction.guild.id}-${interaction.user.id}`, data + 1)
          }).catch((e) => {

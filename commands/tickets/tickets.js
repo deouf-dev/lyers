@@ -146,7 +146,7 @@ module.exports = {
             async function home(collected = interaction){
                 let embed = {
                     title: "Tickets",
-                    description: tickets.map((t, i) => `${i}: [${interaction.guild.channels.cache.get(t.channel)?.name ||"Salon supprimé"}](https://discord.com/channels/${interaction.guild.id}/${t.channel}/${t.message}`) || "Utiliser la commande `/tickets pannel` pour crée votre premier système de tickets",
+                    description: tickets.map((t, i) => `${i}: [${interaction.guild.channels.cache.get(t.channel)?.name ||"Salon supprimé"}](https://discord.com/channels/${interaction.guild.id}/${t.channel}/${t.message}`) || "Utiliser la commande `/tickets Panel` pour crée votre premier système de tickets",
                     color: guildData.get("color")
                 }
                 const button = new ActionRowBuilder().setComponents(

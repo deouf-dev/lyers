@@ -264,8 +264,7 @@ module.exports = async (client, interaction) => {
                 replied = await collected.message.reply("Quel est le salon ?");
                 messageCollector().on("collect", async (mes) => {
                     const newChannel =
-                        mes.mentions.channels.first() ||
-                        mes.guild.channels.cache.get(mes.content);
+                       client.util.getChannel(mes, mes.content)
                     if (!channel || channel.type !== 0)
                         return replyAndDelete("Salon invalide", mes, replied);
                     channel = newChannel;

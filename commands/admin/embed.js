@@ -1,6 +1,6 @@
 module.exports = {
     name: "embed",
-    description: "Pannel pour crée un embed personnalisé",
+    description: "Panel pour crée un embed personnalisé",
     userPermissions: ["Administrator"],
 
 

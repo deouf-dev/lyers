@@ -27,7 +27,7 @@ module.exports = {
                }
           }else if(!oldVoice.channel && newVoice.channel){
                if(map.has(`${newVoice.guild.id}-${newVoice.id}`)) return;
-               map.set(`${newVoice.guild.id}-${newVoice.id}`, setInterval(() => addXp(), 5000))
+               map.set(`${newVoice.guild.id}-${newVoice.id}`, setInterval(() => addXp(), 60000))
           }
           setInterval(() => {
                map.clear()

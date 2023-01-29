@@ -58,8 +58,8 @@ module.exports = {
                     name: `${client.botemojis.mod} Modération`,
                     value: []
                 },
-                setup: {
-                    name: `${client.botemojis.setup} Setup`,
+                misc: {
+                    name: `${client.botemojis.setup} Misc`,
                     value: [],
                 },
                 info: {

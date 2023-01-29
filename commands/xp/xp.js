@@ -2,7 +2,7 @@ const { ActionRowBuilder, StringSelectMenuBuilder } = require("discord.js");
 
 module.exports = {
      name: "xp",
-     description: "Pannel de configuration du système d'xp",
+     description: "Panel de configuration du système d'xp",
      userPermissions: ["Administrator"],
 
 
@@ -70,7 +70,7 @@ module.exports = {
           })
           function embed(){
                return {
-                    title: "Xp Pannel",
+                    title: "Xp Panel",
                     color: guildData.get("color"),
                     fields: [
                          {name: `${client.botemojis.xp} Xp par message`, value: `\`${config.xpPerMessage}\``},

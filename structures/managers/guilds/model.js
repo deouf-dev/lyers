@@ -96,5 +96,9 @@ module.exports = {
         xpPerMinuteInVoice: 2.50,
         channel: undefined,
         toggle: false,
+    },
+    captcha: {
+        channel: undefined,
+        toggle: undefined,
     }
 }

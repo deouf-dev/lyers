@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@haileybot/captcha-generator": "^1.7.0",
     "discord-card-canvas": "^1.2.5",
     "discord-inviter": "^0.9.3",
     "discord.js": "^14.7.1",

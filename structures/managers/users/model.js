@@ -1,3 +1,5 @@
 module.exports = {
-    xp: {}
+    xp: {},
+    warns: {},
+    mutes: {}
 }

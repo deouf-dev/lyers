@@ -17,14 +17,21 @@ module.exports = {
         if(duration && !client.util.checkDuration(duration)) return interaction.reply({content: "Durée invalide", ephemeral: true})
         if(target.roles.highest.position >= interaction.member.roles.highest.position) return interaction.reply({content: "Vous ne pouvez pas mute cette utilisateur car il possède un plusieurs rôle au-dessus de vous", ephemeral: true})
         target.roles.add(muterole).then(() => {
+            const targetData = client.managers.userManager.getOrCreate(target.user.id)
+            const warns = targetData.get("warns")
+            const mutes = targetData.get("mutes")
             interaction.reply(`${target} a été mute pour ${reason} ${duration ? `pendant ${duration}`: ""}`);
             client.util.modLog(interaction.guild, `${interaction.user} a mute ${target} pour ${reason} ${duration ? `pendant ${duration}`: ""}`)
+            warns[interaction.guild.id] ? null : warns[interaction.guild.id] = []
+            warns[interaction.guild.id].push({type: "mute", timestamp: Math.round(Date.now() / 1000), reason})
+            targetData.set("warns", warns)
             if(duration){
-                const data = {guildId: interaction.guild.id, muterole, expireAt: Date.now() + require("ms")(duration)}
-                client.managers.muteManager.getOrCreate(target.user.id).push("mutes", data);
+                mutes[interaction.guild.id] = {muterole, expireAt: Date.now() + require("ms")(duration)}
+                targetData.set("mutes", mutes)
                 setTimeout(() => {
                     target.roles.remove(muterole).catch((e) =>{});
-                    client.managers.muteManager.getOrCreate(target.user.id).unpush("mutes", data)
+                    mutes[interaction.guild] = undefined;
+                    targetData.set("mutes", mutes)
                 }, require("ms")(duration))
             }
         }).catch((e) => {
