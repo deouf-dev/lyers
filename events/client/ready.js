@@ -5,7 +5,6 @@ module.exports = {
     async run(client){
         console.log("lYers on!")
         client.util.commitCommands();
-
         let base = "lYers 📘 v1"
         client.user.setPresence({activities: [{type: 0, name: base, url: "https://twitch.tv/lyers"}]})
         let i = 0

@@ -98,6 +98,21 @@ class Util {
         .replace("{invitesCount}", invitesCount)
 
     }
+    async sleep(ms){
+        return new Promise(res => setTimeout(res, ms))
+    }
+    getXpLeaderboard(guild){
+        return Object.keys(this.client.database.users|| {}).sort((a, b) => this.client.database.users[a].xp?.level - this.client.database.users[b].xp?.level)
+    }
+    getXpForLevel(level){
+        let returns = 1;
+        let i = 0;
+        while(level >= i){
+            i++;
+            returns = returns * 2;
+        }
+        return returns;
+    }
 }
 
 

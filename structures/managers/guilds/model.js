@@ -91,4 +91,10 @@ module.exports = {
         }
     },
     invites: {},
+    xp: {
+        xpPerMessage: 1.50,
+        xpPerMinuteInVoice: 2.50,
+        channel: undefined,
+        toggle: false,
+    }
 }

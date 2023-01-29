@@ -66,6 +66,10 @@ module.exports = {
                     name: `${client.botemojis.user} Informations`,
                     value: [],
                 },
+                xp: {
+                    name: `${client.botemojis.xp} Xp`,
+                    value: []
+                },
                 invites: {
                     name: `📩 Invites`,
                     value: []
@@ -109,7 +113,6 @@ module.exports = {
                 });
             }
             const embed = {
-                title: "Help",
                 fields: fieldsArray,
                 color: guildData.get("color"),
             };

@@ -5,7 +5,7 @@ module.exports = {
         if (!interaction.inGuild()) return;
         if (!interaction.isCommand()) return;
         const guildManager = client.managers.guildManager.getOrCreate(
-            interaction.guildId
+            interaction.guild.id
         );
         const command = client.commands.get(interaction.commandName);
         if (

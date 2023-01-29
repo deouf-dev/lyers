@@ -21,7 +21,7 @@ module.exports = {
          const response = await interaction.awaitModalSubmit({time: 120000});
          const text = response.fields.getTextInputValue("text-report");
          const channel = client.guilds.cache.get(process.env.SUPPORT_GUILD).channels.cache.get(process.env.BUG_CHANNEL)
-         console.log(process.env.BUG_CHANNEL)
+         
          channel.send({embeds: [
           {
                title: "Nouveau Report",

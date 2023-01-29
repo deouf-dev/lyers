@@ -1,4 +1,3 @@
 module.exports = {
-    prevnames: [],
-    reportCooldown: undefined,
+    xp: {}
 }

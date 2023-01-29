@@ -6,7 +6,7 @@ module.exports = {
                for(const key in client.database.mutes){
                     const data = client.database.mutes[key];
                     if(data.expireAt >= Date.now()){
-                         const guild = client.guilds.cache.get(data.guildId);
+                         const guild = client.guilds.cache.get(data.guild.id);
                          if(!guild) return;
                          const member = guild.members.cache.get(member);
                          member?.roles.remove(data.muterole).catch((e) => {})

@@ -308,7 +308,7 @@ module.exports = {
 						?.channels.cache.get(gdata.bump.channel);
 					if (
 						tags.some((t) => gdata.bump?.tags.includes(t)) &&
-						gdata.guildId !== interaction.guildId
+						gdata.guildId !== interaction.guild.id
 					) {
 						channel?.send({
 							embeds: [

@@ -20,7 +20,7 @@ module.exports = {
             interaction.reply(`${target} a été mute pour ${reason} ${duration ? `pendant ${duration}`: ""}`);
             client.util.modLog(interaction.guild, `${interaction.user} a mute ${target} pour ${reason} ${duration ? `pendant ${duration}`: ""}`)
             if(duration){
-                const data = {guildId: interaction.guildId, muterole, expireAt: Date.now() + require("ms")(duration)}
+                const data = {guildId: interaction.guild.id, muterole, expireAt: Date.now() + require("ms")(duration)}
                 client.managers.muteManager.getOrCreate(target.user.id).push("mutes", data);
                 setTimeout(() => {
                     target.roles.remove(muterole).catch((e) =>{});
