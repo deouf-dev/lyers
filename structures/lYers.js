@@ -19,7 +19,7 @@ class lYers extends Client {
         this.login(this.test ? process.env.TEST_TOKEN : process.env.TOKEN);
         this.initCommands();
         this.initEvents();
-        this.initDatabase()
+        this.initDatabase();
     }
     initCommands(){
         for(const dir of fs.readdirSync("./commands")){

@@ -26,10 +26,7 @@ class Manager {
     constructor(cache, values){
         this.cache = cache;
         this.key = values.userId;
-        this.values = {
-            ...require("./model"),
-            ...values
-        }
+        this.values = {...require("./model"), ...values}
     }
     save(){
         this.cache.client.database.users[this.key] = this.values;

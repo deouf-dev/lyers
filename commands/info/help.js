@@ -81,6 +81,10 @@ module.exports = {
                 tickets: {
                     name: `:tickets: Tickets`,
                     value: []
+                },
+                backup: {
+                    name: "♻ Backup",
+                    value: []
                 }
             };
             client.commands.forEach((cmd) => {

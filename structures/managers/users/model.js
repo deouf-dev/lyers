@@ -1,5 +1,6 @@
 module.exports = {
-    xp: {},
-    warns: {},
-    mutes: {}
-}
+	xp: {},
+	warns: {},
+	mutes: {},
+	backups: [],
+};

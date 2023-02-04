@@ -26,10 +26,7 @@ class Manager {
     constructor(cache, values){
         this.cache = cache;
         this.key = values.guildId;
-        this.values = {
-            ...require("./model"),
-            ...values,
-        }
+        this.values = {...require("./model"), ...values}
     }
     save(){
         this.cache.client.database.guilds[this.key] = this.values;
@@ -52,11 +49,6 @@ class Manager {
     unpush(key, value){
         this.values[key] = this.values[key].filter((k) => k !== value);
         this.save();
-        return this;
-    }
-    replace(key, oldValue, newValue){
-        this.unpush(key, oldValue);
-        this.push(key, newValue)
         return this;
     }
     delete(key){
